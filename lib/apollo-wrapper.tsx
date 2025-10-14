@@ -1,7 +1,7 @@
 'use client'
 
 import type { ReactNode } from 'react'
-import { ApolloLink, HttpLink, split } from '@apollo/client'
+import { ApolloLink, HttpLink } from '@apollo/client'
 import {
   ApolloClient,
   ApolloNextAppProvider,
@@ -14,7 +14,7 @@ import { createClient } from 'graphql-ws'
 
 function makeClient() {
   const httpLink = new HttpLink({
-    uri: 'https://your-graphql-server.com/graphql',
+    uri: 'http://localhost:8000',
   })
 
   const wsLink
@@ -28,7 +28,7 @@ function makeClient() {
 
   const splitLink
     = typeof window !== 'undefined' && wsLink
-      ? split(
+      ? ApolloLink.split(
           ({ query }) => {
             const definition = getMainDefinition(query)
             return (
