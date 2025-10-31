@@ -83,5 +83,18 @@
     "scss",
     "pcss",
     "postcss"
+  ],
+  "sqltools.connections": [
+    {
+      "ssh": "Disabled",
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5433,
+      "askForPassword": true,
+      "driver": "PostgreSQL",
+      "name": "tyange-sysmon-db",
+      "database": "system_monitoring",
+      "username": "postgres"
+    }
   ]
 }
