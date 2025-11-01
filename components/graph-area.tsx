@@ -103,6 +103,7 @@ export default function GraphArea() {
         <CameraTracker setCameraPos={setCameraPos} />
         <ambientLight intensity={0.5} />
         <pointLight position={[10, 10, 10]} />
+        {/* X축 */}
         <mesh position={[0, -147, 0]} rotation={[0, 0, Math.PI / 2]}>
           <cylinderGeometry args={[4, 4, 500, 32]} />
           <meshStandardMaterial color="black" />
@@ -111,18 +112,21 @@ export default function GraphArea() {
           <cylinderGeometry args={[4, 4, 500, 4]} />
           <meshStandardMaterial color="black" />
         </mesh>
+        {/* POINT */}
         <mesh position={[150, 343, 0]}>
           <sphereGeometry args={[5, 16, 16]} />
           <meshStandardMaterial color="red" />
+        </mesh>
+        {/* Y축 */}
+        <mesh position={[250, 100, 0]}>
+          <cylinderGeometry args={[4, 4, 500, 4]} />
+          <meshStandardMaterial color="black" />
         </mesh>
         <mesh position={[-250, 100, 0]}>
           <cylinderGeometry args={[4, 4, 500, 32]} />
           <meshStandardMaterial color="black" />
         </mesh>
-        <mesh position={[250, 100, 0]}>
-          <cylinderGeometry args={[4, 4, 500, 4]} />
-          <meshStandardMaterial color="black" />
-        </mesh>
+        {/* X축과 Y축을 잇는 구체 */}
         <mesh position={[-250, -147, 0]}>
           <sphereGeometry args={[4, 16, 16]} />
           <meshStandardMaterial color="black" />
