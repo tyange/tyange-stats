@@ -80,8 +80,8 @@ export default function GraphArea() {
       <p>{data?.systemStatusHistory[0].memoryUsage}</p>
       <div style={{
         position: 'absolute',
-        top: 10,
-        left: 10,
+        top: 100,
+        left: 100,
         background: 'rgba(0,0,0,0.7)',
         color: 'white',
         padding: '10px',
@@ -99,20 +99,35 @@ export default function GraphArea() {
           ]
         </div>
       </div>
-      <Canvas camera={{ position: [-320, -3, 384] }}>
+      <Canvas orthographic camera={{ zoom: 1, position: [0, 0, 500] }}>
         <CameraTracker setCameraPos={setCameraPos} />
         <ambientLight intensity={0.5} />
         <pointLight position={[10, 10, 10]} />
         <mesh position={[0, -147, 0]} rotation={[0, 0, Math.PI / 2]}>
+          <cylinderGeometry args={[4, 4, 500, 32]} />
+          <meshStandardMaterial color="black" />
+        </mesh>
+        <mesh position={[0, 347, 0]} rotation={[0, 0, Math.PI / 2]}>
           <cylinderGeometry args={[4, 4, 500, 4]} />
           <meshStandardMaterial color="black" />
+        </mesh>
+        <mesh position={[150, 343, 0]}>
+          <sphereGeometry args={[5, 16, 16]} />
+          <meshStandardMaterial color="red" />
         </mesh>
         <mesh position={[-250, 100, 0]}>
+          <cylinderGeometry args={[4, 4, 500, 32]} />
+          <meshStandardMaterial color="black" />
+        </mesh>
+        <mesh position={[250, 100, 0]}>
           <cylinderGeometry args={[4, 4, 500, 4]} />
           <meshStandardMaterial color="black" />
         </mesh>
-
-        <OrbitControls minDistance={400} maxDistance={500} />
+        <mesh position={[-250, -147, 0]}>
+          <sphereGeometry args={[4, 16, 16]} />
+          <meshStandardMaterial color="black" />
+        </mesh>
+        <OrbitControls enableRotate={true} />
       </Canvas>
     </>
   )
