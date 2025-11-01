@@ -105,12 +105,12 @@ export default function GraphArea() {
         <pointLight position={[10, 10, 10]} />
         {/* X축 */}
         <mesh position={[0, -147, 0]} rotation={[0, 0, Math.PI / 2]}>
-          <cylinderGeometry args={[4, 4, 500, 32]} />
+          <cylinderGeometry args={[3, 3, 500, 32]} />
           <meshStandardMaterial color="black" />
         </mesh>
         <mesh position={[0, 347, 0]} rotation={[0, 0, Math.PI / 2]}>
           <cylinderGeometry args={[4, 4, 500, 4]} />
-          <meshStandardMaterial color="black" />
+          <meshStandardMaterial color="blue" />
         </mesh>
         {/* POINT */}
         <mesh position={[150, 343, 0]}>
@@ -118,17 +118,17 @@ export default function GraphArea() {
           <meshStandardMaterial color="red" />
         </mesh>
         {/* Y축 */}
-        <mesh position={[250, 100, 0]}>
-          <cylinderGeometry args={[4, 4, 500, 4]} />
+        <mesh position={[-250, 100, 0]}>
+          <cylinderGeometry args={[3, 3, 500, 32]} />
           <meshStandardMaterial color="black" />
         </mesh>
-        <mesh position={[-250, 100, 0]}>
-          <cylinderGeometry args={[4, 4, 500, 32]} />
-          <meshStandardMaterial color="black" />
+        <mesh position={[250, 100, 0]}>
+          <cylinderGeometry args={[4, 4, 500, 4]} />
+          <meshStandardMaterial color="blue" />
         </mesh>
         {/* X축과 Y축을 잇는 구체 */}
         <mesh position={[-250, -147, 0]}>
-          <sphereGeometry args={[4, 16, 16]} />
+          <sphereGeometry args={[3, 16, 16]} />
           <meshStandardMaterial color="black" />
         </mesh>
         <OrbitControls enableRotate={true} />
